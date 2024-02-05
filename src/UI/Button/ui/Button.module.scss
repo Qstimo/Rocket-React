@@ -1,0 +1,35 @@
+.Button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-size: var(--font-size-l);
+    cursor: pointer;
+    font-weight: 400;
+    font-size: var(--font-size-m);
+    height: 43px;
+    position: relative;
+}
+
+
+
+.clear-green {
+    background-color: white;
+    border: 1px solid #0DBC91;
+    color: #0DBC91;
+
+    &:active {
+        background-color: #0DBC91;
+        color: white;
+    }
+}
+
+.green {
+    background-color: #0DBC91;
+    color: white;
+    border: 1px solid #0DBC91;
+
+    &:active {
+        background-color: white;
+        color: #0DBC91;
+    }
+}

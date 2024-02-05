@@ -1,0 +1,266 @@
+.Header {}
+
+.Header_container {
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 700px) {
+        height: 67px;
+    }
+}
+
+.Header_menu_btn_up {
+    display: none;
+
+    @media (min-width: 700px) {
+        display: block;
+    }
+}
+
+.Header_logo {
+
+    width: 62px;
+    height: 18px;
+
+    @media (min-width: 700px) {
+        width: 90px;
+        height: 26px;
+    }
+}
+
+.Header_location {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: right;
+
+    @media (min-width: 700px) {
+        padding: 0 35px 0 20px;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1;
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.Header_location_text {
+    position: relative;
+    padding-left: 18px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+
+    p {
+        color: #364844;
+
+    }
+
+    span {
+        color: #868686;
+        display: none;
+    }
+
+    @media (min-width: 700px) {
+        font-size: 16px;
+
+        p {
+            color: black;
+        }
+
+        span {
+            display: inline;
+        }
+
+    }
+
+    .Header_location_text_icon {
+        position: absolute;
+        left: 0;
+        top: -3.5px;
+        display: none;
+
+        @media (min-width: 700px) {
+            display: block;
+        }
+    }
+}
+
+.Header_location_phone {
+    position: relative;
+    padding-left: 30px;
+
+    a {
+        color: #364844;
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    @media (min-width: 700px) {
+        a {
+            color: #000;
+        }
+    }
+
+    .Header_location_phone_icon {
+        position: absolute;
+        left: 0;
+        top: -2px;
+        display: none;
+
+        @media (min-width: 700px) {
+            display: block;
+        }
+    }
+}
+
+.Header_menu {
+    background-color: #1FA181;
+
+}
+
+
+
+.BtnClose {
+    width: 36px;
+    height: 26px;
+    position: relative;
+    z-index: 5;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+
+
+    span,
+    span::after,
+    span::before {
+        transition: all 0.5s ease-in-out;
+        content: '';
+        width: 100%;
+        background-color: #1FA181;
+        border-radius: 10px;
+        height: 3.5px;
+        display: block;
+        left: 0;
+        position: absolute;
+    }
+
+    span {
+        top: 0;
+    }
+
+    span::after {
+        top: 10px;
+    }
+
+    span::before {
+        top: 20px;
+    }
+
+    @media(min-width: 700px) {
+        display: none;
+    }
+}
+
+._active_btn {
+    span {
+        transform: rotate(45deg);
+        top: 10px;
+
+    }
+
+    span::after {
+        opacity: 0;
+        top: 10px;
+        width: 0%;
+        left: 50%;
+    }
+
+    span::before {
+        transform: rotate(90deg);
+        top: 0;
+    }
+}
+
+.Navbar {
+    position: fixed;
+    background-color: #45927fd4;
+    transition: all 0.3s ease-in-out;
+    z-index: 4;
+    top: 65px;
+    left: -200px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+
+    ul {
+
+
+        li {
+            margin-bottom: 0px;
+            transition: all 1s ease-in-out;
+            color: white;
+            font-weight: 400;
+        }
+    }
+
+    @media(min-width: 700px) {
+        top: auto;
+        height: 43px;
+        left: auto;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: auto;
+        background-color: transparent;
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+
+            a {
+                color: white;
+                font-size: var(--font-size-L);
+            }
+
+            li {
+                margin-bottom: 0px;
+                text-transform: none;
+                letter-spacing: normal;
+
+            }
+
+        }
+    }
+
+    .Header_menu_btn {
+        font-weight: 700;
+
+        @media (min-width: 700px) {
+            display: none;
+        }
+    }
+}
+
+._active_nav {
+    width: 100%;
+    height: calc(100vh - 65px);
+    padding: 50px 20px 0px;
+    left: 0;
+
+    ul {
+        transition: all 0.5s ease-in-out;
+        margin-bottom: 40px;
+
+        li {
+            margin-bottom: 10px;
+        }
+    }
+}
