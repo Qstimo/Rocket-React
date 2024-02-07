@@ -4,7 +4,7 @@ import { classNames } from '../helpers/Classnames/classnames'
 import checkSvg from './assets/icon/check_svg.svg'
 
 interface indexProps {
-    ans: string,
+    ans: string[],
     qwest: string,
 
 }
@@ -15,13 +15,14 @@ export const Accordion = ({ ans, qwest }: indexProps) => {
             onClick={() => setIsActiveAccordion(prev => !prev)}
             key={qwest}
             className={cls.item}>
-            <img className={cls.item_img} src={checkSvg}
-                alt="check" />
             <p className={cls.item_title}> {qwest}</p>
             <div
                 className={classNames(cls.item_answer, { [cls.item_answer_active]: isActiveAccordion }, [])}>
-                <p className={cls.item_answer_text}> {ans}</p>
+                {ans.map(e => <p className={cls.item_answer_text}> {e}</p>)}
             </div>
+            <button className={classNames(cls.item_click, { [cls.item_click_active]: isActiveAccordion }, [])}>
+                <span />
+            </button>
         </li>
     </>
     )

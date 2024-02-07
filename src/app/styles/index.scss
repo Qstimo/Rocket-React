@@ -8,12 +8,13 @@ body {
 
 .app {
   min-height: 100vh;
-
+  color: #364844;
 }
 
 .content-page {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
 }
 

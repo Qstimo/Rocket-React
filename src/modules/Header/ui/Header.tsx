@@ -9,7 +9,7 @@ import whatssIc from '../assets/icons/whatsapp_ic.svg'
 interface HeaderProps {
     className?: string
 }
-const menuArray = [
+export const menuArray = [
     { name: 'О клинике', path: '/' },
     { name: 'Услуги', path: '/' },
     { name: 'Специалисты', path: '/' },

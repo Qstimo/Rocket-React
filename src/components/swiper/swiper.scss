@@ -1,0 +1,26 @@
+.swiper_container {
+    overflow: hidden;
+    display: flex;
+    max-width: 1160px;
+    margin: 0 auto;
+    max-height: 442PX;
+    margin-bottom: 158px;
+}
+
+.swiper_content_text {
+    position: relative;
+    z-index: 3;
+    padding: 50px 86px 56px;
+    flex: 1;
+
+    img {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+    }
+}
+
+.swiper_content_img {
+    object-fit: cover;
+}

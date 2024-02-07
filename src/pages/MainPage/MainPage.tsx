@@ -2,19 +2,27 @@ import React from 'react'
 import cls from './MainPage.module.scss'
 import { classNames } from '../../components/helpers/Classnames/classnames'
 import { WelcomePage } from '../../modules/WelcomePage'
-import { AboutUs } from '../../modules/AboutUs'
-import { Values } from '../../modules/Values'
 import { Aside } from '../../modules/Aside'
 import { FormList } from '../../modules/Form'
+import img_1 from './assets/img/img_1.png'
+import MySwiper from '../../components/swiper/Swiper'
+import Slider from '../../components/swiper/Swiper'
 
 interface MainPageProps {
     className?: string
 }
+const swiperArray = [
+    { img: img_1, },
+    { img: img_1, },
+    { img: img_1, },
 
+]
 export const MainPage = ({ className = '' }: MainPageProps) => {
     return (
         <div className={classNames(cls.MainPage, {}, [className])}>
-
+            <WelcomePage />
+            <Aside />
+            <Slider sliders={swiperArray} />
         </div>
     )
 }

@@ -11,21 +11,21 @@ import { Accordion } from '../../../components/Accordion'
 
 const qwestArray = [
     {
-        qwest: 'На что нужно обратить внимание на собеседовании?',
-        ans: ""
+        qwest: 'Заголовок часто задаваемого вопроса',
+        ans: ["Blandit et et ac non interdum odio tristique diam vestibulum. Velit in quis consequat lacus fringilla amet elementum pharetra massa. Morbi euismod nulla cras adipiscing tristique aliquet purus adipiscing. "]
 
     },
     {
-        qwest: 'Как правильно составить резюме?',
-        ans: ' '
+        qwest: 'Заголовок часто задаваемого вопроса с двумя абзацами ',
+        ans: [" Enim lectus pretium pellentesque dignissim nam massa justo dolor. Lectus pharetra molestie ac urna lorem. Nibh et vestibulum ullamcorper elit.", " Это предложение должно здесь быть. Massa arcu volutpat blandit augue nibh nisl fames. Sodales pharetra nisi quis purus lacinia. Sapien cras posuere dolor tincidunt quis sed adipiscing. "]
     },
     {
-        qwest: 'Возможно ли устроиться без опыта?',
-        ans: ' '
+        qwest: 'Заголовок часто задаваемого вопроса',
+        ans: [' Nunc mi purus semper quam. Tincidunt magna neque rutrum sollicitudin dui hendrerit sed. Ipsum fusce volutpat eu pretium morbi dictum et bibendum. Purus tellus sit vel sed amet commodo volutpat sed et. Nibh aliquam ornare fermentum consequat ultrices arcu. ']
     },
     {
-        qwest: 'Ошибки на собеседовании. Чего нужно избегать?',
-        ans: ' '
+        qwest: 'Заголовок часто задаваемого вопроса',
+        ans: [' Tellus pharetra lorem placerat tortor pharetra. Faucibus diam egestas commodo rhoncus vitae tristique. Adipiscing ultricies gravida nunc nisi at ipsum enim lobortis a. Est risus est commodo nibh. In leo nisi nunc elit luctus nisl praesent. Nibh placerat dui in adipiscing fringilla auctor purus id augue. Viverra libero sit commodo sit aliquet massa euismod. ']
     },
 
 ]
@@ -33,47 +33,18 @@ const qwestArray = [
 export const Aside = () => {
     return (
         <div className={cls.Aside}>
-            <div className={cls.Aside_video}>
-                <div className="content">
-                    <h2 className={cls.Aside_title}>Инфраструктура для твоего развития и роста</h2>
-                    <div className={cls.Aside_video_container} >
-                        <div className={cls.Aside_video_text}>
-                            <p className={cls.Aside_text}>Мы создаем платформу для профессионального развития каждого сотрудника.
-                                Главная цель – дать возможность учиться, работать и получать удовольствие от каждой успешной задачи.
-                            </p>
-                            <p className={cls.Aside_text}>О возможностях личностного роста в ГЭНДАЛЬФ расскажет руководитель Департамента
-                                персонала и карьеры Татьяна Арсенович.</p>
-                        </div>
-                        <div className={cls.Aside_video_img}>
-                            <button className={cls.Aside_video_img_btn}><img src={PlayIc} alt="play" /></button>
-                            <picture>
-                                <source media="(min-width:800px)" srcSet={videoPrew} />
-                                <img className={cls.Aside_video_img_pic} src={videoPrewMob} alt="Видео превью" />
-                            </picture>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className={cls.Invite}>
-                <div className="content">
-                    <div className={cls.Invite_container}>
-                        <h2>Ты студент и хочешь устроиться на практику?</h2>
-                        <Button theme={ButtonTheme.GREEN}>Оставить заявку</Button>
-                    </div>
-                </div>
-            </div>
             <div className={cls.FAQ}>
                 <div className="content">
                     <div className={cls.FAQ_container}>
                         <div className={cls.FAQ_list}>
-                            <h3>Ответы на вопросы</h3>
+                            <h2>Часто задаваемые вопросы</h2>
                             <ul>
                                 {qwestArray
                                     .map(e => <Accordion key={e.qwest} qwest={e.qwest} ans={e.ans} />)
                                 }
                             </ul>
                         </div>
-                        <img className={cls.FAQ_img} width={378} height={320} src={qwestMen} alt="Вопросы" />
+
                     </div>
                 </div></div>
         </div>

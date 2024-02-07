@@ -1,74 +1,66 @@
-.WelcomePage {
-    height: 400px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url('../assets/img/welcome_page_bg_mob.jpg');
+.WelcomePage {}
 
-    @media(min-width: 840px) {
-        height: 568px;
-        background-image: url('../assets/img/welcome_page_bg_desc.jpg');
+.WelcomePage_img_container {
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    picture {
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
     }
 
+    @media (min-width: 770px) {
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        picture {
+            img {
+                object-fit: cover;
+                width: auto;
+                height: 532px;
+            }
+        }
+
+
+    }
 }
 
-.WelcomePage_container {
-    padding-top: 31px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+.WelcomePage_img_container_text {
+    div {
+        max-width: 417px;
+    }
 
     h1 {
-        font-size: 24px;
-        color: white;
+        font-size: 26px;
         font-weight: 700;
-        margin-bottom: 20px;
         line-height: 34px;
+        margin-bottom: 10px;
     }
 
-    .title {
-        color: white;
-        margin-bottom: 40px;
-        padding: 0 10px;
+    p {
+        font-size: 14px;
     }
 
-    @media(min-width: 840px) {
-        padding-top: 64px;
+    @media (min-width: 770px) {
+        div {
+            padding-right: 15px;
+            margin-top: 150px;
+            max-width: 417px;
+        }
+
+        p {
+            font-size: 16px;
+        }
 
         h1 {
-            font-size: 64px;
-            line-height: 84px;
-        }
-
-        .title {
-            font-size: 25px;
-            width: 854px;
-            line-height: 34px;
-        }
-    }
-}
-
-.btn_container {
-    display: flex;
-    justify-content: space-between;
-    width: 295px;
-    gap: 10px;
-    flex-direction: column;
-
-    button:nth-child(2) {
-        padding: 12px 2px;
-    }
-
-    @media(min-width: 840px) {
-        width: 565px;
-        flex-direction: row;
-        justify-content: space-between;
-
-        button:nth-child(2) {
-            padding: 12px 15px;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 47px;
+            margin-bottom: 14px;
         }
     }
 }
