@@ -2,10 +2,8 @@ import React, { ButtonHTMLAttributes } from 'react'
 import cls from './Button.module.scss'
 import { classNames } from '../../../components/helpers/Classnames/classnames'
 export enum ButtonTheme {
-    CLEAR_BLUE = 'clear-blue',
     CLEAR_GREEN = 'clear-green',
     GREEN = 'green',
-    BLUE = 'blue',
 }
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string,

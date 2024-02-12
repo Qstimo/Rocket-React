@@ -13,11 +13,16 @@
 
 
 .clear-green {
-    background-color: white;
+    background-color: transparent;
     border: 1px solid #0DBC91;
     color: #0DBC91;
 
     &:active {
+        background-color: #0DBC91;
+        color: white;
+    }
+
+    &:hover {
         background-color: #0DBC91;
         color: white;
     }
@@ -29,7 +34,10 @@
     border: 1px solid #0DBC91;
 
     &:active {
-        background-color: white;
-        color: #0DBC91;
+        background-color: #00D29F;
+    }
+
+    &:hover {
+        background-color: #00D29F;
     }
 }

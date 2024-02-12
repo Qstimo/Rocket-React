@@ -242,6 +242,18 @@
 
     .Header_menu_btn {
         font-weight: 700;
+        background-color: white;
+        color: #1FA181;
+
+        &:active {
+            background-color: #0DBC91;
+            color: white;
+        }
+
+        &:hover {
+            background-color: #0DBC91;
+            color: white;
+        }
 
         @media (min-width: 770px) {
             display: none;
