@@ -13,14 +13,8 @@ import { useRef } from 'react';
 import { SlideNextButton, SlidePrevButton } from './SlideButton';
 import { useModal } from '../../app/providers/ModalContext';
 
-const list = [
-  'Гормональный скрининг',
-  'Тестостерон',
-  'Свободный тестостерон',
-  'Глобулин, связывающий половые гормоны',
-];
 const Slider = ({ sliders = [] }) => {
-  const { modal, toggleModal } = useModal();
+  const { toggleModal } = useModal();
 
   return (
     <>
@@ -33,23 +27,23 @@ const Slider = ({ sliders = [] }) => {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}>
         <div className="swiper_arrows">
-          <SlidePrevButton></SlidePrevButton>
-          <SlideNextButton></SlideNextButton>
+          <SlidePrevButton />
+          <SlideNextButton />
         </div>
         {sliders?.map((slider, i) => (
           <SwiperSlide key={i}>
             <div className="swiper_container">
               <div className="swiper_content_text">
                 <img src={bgImg} alt="" />
-                <h3>Check-UP</h3>
-                <h4>для мужчин</h4>
+                <h3>{slider.title}</h3>
+                <h4>{slider.subtitle}</h4>
                 <ul className="swiper_content_list">
-                  {list.map((e, i) => (
+                  {slider.list.map((e, i) => (
                     <li key={i}>{e}</li>
                   ))}
                 </ul>
                 <div className="swiper_content_text_price">
-                  <p>Всего 2800₽ </p> <span>3500₽</span>
+                  <p>Всего: {slider.price}₽ </p> <span>{slider.subprice}₽</span>
                 </div>
                 <div className="swiper_content_btn">
                   <Button onClick={toggleModal} theme={ButtonTheme.GREEN}>

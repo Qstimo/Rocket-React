@@ -8,21 +8,17 @@ import whatssIc from '../assets/icons/whatsapp_ic.svg'
 import { Modal } from '../../../components/Modal/Modal'
 import { FormList } from '../../Form'
 import { useModal } from '../../../app/providers/ModalContext'
+import { useText } from '../../../app/providers/TextContext'
 
 interface HeaderProps {
     className?: string
 }
-export const menuArray = [
-    { name: 'О клинике', path: '/' },
-    { name: 'Услуги', path: '/' },
-    { name: 'Специалисты', path: '/' },
-    { name: 'Цены', path: '/' },
-    { name: 'Контакты', path: '/' },
-]
+
 export const Header = ({ className }: HeaderProps) => {
     const [open, setOpen] = React.useState(false);
     const [isAuthModal, setIsAuthModal] = React.useState(false);
     const { modal, toggleModal } = useModal();
+    const { text } = useText()
 
 
     const toglleNavbar = () => {
@@ -47,12 +43,12 @@ export const Header = ({ className }: HeaderProps) => {
                                 <path d="M6.8304 0.615234C3.23672 0.615234 0.312988 3.53897 0.312988 7.13264C0.312988 11.6495 6.83681 19.3652 6.83681 19.3652C6.83681 19.3652 13.3478 11.4274 13.3478 7.13264C13.3478 3.53897 10.4242 0.615234 6.8304 0.615234ZM8.79684 9.04095C8.25461 9.58305 7.54256 9.85416 6.8304 9.85416C6.11835 9.85416 5.40607 9.58305 4.86407 9.04095C3.77975 7.95673 3.77975 6.19251 4.86407 5.10818C5.38913 4.5829 6.08756 4.29359 6.8304 4.29359C7.57323 4.29359 8.27155 4.58301 8.79684 5.10818C9.88116 6.19251 9.88116 7.95673 8.79684 9.04095Z" fill="#E1E1E1" />
                             </svg>
 
-                            <p>Ростов-на-Дону</p>
-                            <span>ул. Ленина, 2Б</span>
+                            <p>{text?.header.localTown}</p>
+                            <span>{text?.header.localStr}</span>
                         </div>
                         <div className={cls.Header_location_phone}>
                             <img className={cls.Header_location_phone_icon} src={whatssIc} alt="whatsapp icon" />
-                            <a className={cls.Header_location_phone_link} href="tel:+7(863) 000 00 00">+7(863) 000 00 00</a>
+                            <a className={cls.Header_location_phone_link} href={`tel:${text?.header.phone}`}>{text?.header.phone}</a>
                         </div>
 
                     </div>
@@ -64,7 +60,7 @@ export const Header = ({ className }: HeaderProps) => {
 
                     <div className={classNames(cls.Navbar, { [cls._active_nav]: open }, [])}>
                         <ul >
-                            {menuArray.map(link =>
+                            {text?.header.menuArray.map(link =>
                             (<Link key={link.name} to={link.path}>
                                 <li >{link.name}</li>
                             </Link>

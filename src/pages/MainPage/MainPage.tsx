@@ -7,22 +7,19 @@ import { FormList } from '../../modules/Form'
 import img_1 from './assets/img/img_1.png'
 import MySwiper from '../../components/swiper/Swiper'
 import Slider from '../../components/swiper/Swiper'
+import { useText } from '../../app/providers/TextContext'
 
 interface MainPageProps {
     className?: string
 }
-const swiperArray = [
-    { img: img_1, },
-    { img: img_1, },
-    { img: img_1, },
 
-]
 export const MainPage = ({ className = '' }: MainPageProps) => {
+    const { text } = useText()
     return (
         <div className={classNames(cls.MainPage, {}, [className])}>
             <WelcomePage />
             <Aside />
-            <Slider sliders={swiperArray} />
+            <Slider sliders={text?.swiper} />
         </div>
     )
 }

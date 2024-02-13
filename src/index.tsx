@@ -4,6 +4,7 @@ import './app/styles/index.scss';
 import App from './app/App';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './app/providers/ModalContext';
+import { TextProvider } from './app/providers/TextContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <ModalProvider>
-      <App />
+      <TextProvider>
+        <App />
+      </TextProvider>
     </ModalProvider>
   </BrowserRouter>
 );
