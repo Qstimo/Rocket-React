@@ -8,6 +8,7 @@ import { useInput } from '../helpers/InputHook'
 import { Button } from '../../../UI/Button'
 import { ButtonTheme } from '../../../UI/Button/ui/Button'
 import scrapImg from './assets/icon/scrap_ic.svg'
+import { useModal } from '../../../app/providers/ModalContext'
 
 export const FormList = () => {
     const name = useInput('', { isEmpty: true, minLength: 3, });
@@ -17,10 +18,13 @@ export const FormList = () => {
     const dataFile = (e: any) => {
         e.preventDefault()
     }
+    const { modal, toggleModal } = useModal();
+
     return (
         <div className={cls.FormList}>
             <div className="content">
                 <div className={cls.FormList_container}>
+                    <button className={cls.FormList_close} onClick={toggleModal}> <span></span></button>
                     <div className={cls.FormList_container_title}>
                         <h3>Запишитесь<br></br> на приём онлайн</h3>
                         <p>Администратор свяжется с вами через WhatsApp в течение дня и уточнит детали</p>

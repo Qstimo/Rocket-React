@@ -11,6 +11,7 @@ import bgImg from './assets/img/bg_desc.png';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { useRef } from 'react';
 import { SlideNextButton, SlidePrevButton } from './SlideButton';
+import { useModal } from '../../app/providers/ModalContext';
 
 const list = [
   'Гормональный скрининг',
@@ -19,6 +20,8 @@ const list = [
   'Глобулин, связывающий половые гормоны',
 ];
 const Slider = ({ sliders = [] }) => {
+  const { modal, toggleModal } = useModal();
+
   return (
     <>
       <Swiper
@@ -49,7 +52,9 @@ const Slider = ({ sliders = [] }) => {
                   <p>Всего 2800₽ </p> <span>3500₽</span>
                 </div>
                 <div className="swiper_content_btn">
-                  <Button theme={ButtonTheme.GREEN}>Записаться</Button>
+                  <Button onClick={toggleModal} theme={ButtonTheme.GREEN}>
+                    Записаться
+                  </Button>
                   <Button theme={ButtonTheme.CLEAR_GREEN}> Подробнее</Button>
                 </div>
               </div>

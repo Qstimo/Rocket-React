@@ -7,6 +7,7 @@ import { classNames } from '../../../components/helpers/Classnames/classnames'
 import whatssIc from '../assets/icons/whatsapp_ic.svg'
 import { Modal } from '../../../components/Modal/Modal'
 import { FormList } from '../../Form'
+import { useModal } from '../../../app/providers/ModalContext'
 
 interface HeaderProps {
     className?: string
@@ -21,10 +22,9 @@ export const menuArray = [
 export const Header = ({ className }: HeaderProps) => {
     const [open, setOpen] = React.useState(false);
     const [isAuthModal, setIsAuthModal] = React.useState(false);
+    const { modal, toggleModal } = useModal();
 
-    const toglleModal = () => {
-        setIsAuthModal(prev => !prev)
-    }
+
     const toglleNavbar = () => {
         setOpen(prev => !prev)
     }
@@ -56,7 +56,7 @@ export const Header = ({ className }: HeaderProps) => {
                         </div>
 
                     </div>
-                    <Button onClick={toglleModal} className={cls.Header_menu_btn_up} theme={ButtonTheme.GREEN}>Записаться на прием</Button>
+                    <Button onClick={toggleModal} className={cls.Header_menu_btn_up} theme={ButtonTheme.GREEN}>Записаться на прием</Button>
                 </div>
             </div>
             <div className={cls.Header_menu}>
@@ -70,12 +70,12 @@ export const Header = ({ className }: HeaderProps) => {
                             </Link>
                             ))}
                         </ul>
-                        <Button onClick={toglleModal} className={cls.Header_menu_btn} theme={ButtonTheme.CLEAR_GREEN}>Записаться на прием</Button>
+                        <Button onClick={toggleModal} className={cls.Header_menu_btn} theme={ButtonTheme.CLEAR_GREEN}>Записаться на прием</Button>
                     </div>
 
                 </div>
             </div>
-            <Modal isOpen={isAuthModal} onClose={toglleModal}>
+            <Modal isOpen={modal} onClose={toggleModal}>
                 <FormList />
             </Modal>
         </div >
