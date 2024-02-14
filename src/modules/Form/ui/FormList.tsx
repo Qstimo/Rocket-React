@@ -9,13 +9,13 @@ import { Button } from '../../../UI/Button'
 import { ButtonTheme } from '../../../UI/Button/ui/Button'
 import scrapImg from './assets/icon/scrap_ic.svg'
 import { useModal } from '../../../app/providers/ModalContext'
-import { API_URL } from '../../../components/helpers/axios/axios'
 import axios from 'axios'
 import { Loading } from '../../../components/Loading/LoadingSvg'
 type FormListProps = {
     setLoading: Dispatch<SetStateAction<boolean>>;
 }
 export const FormList: React.FC<FormListProps> = ({ setLoading }) => {
+    const API_URL = process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL : 'http://localhost:4444';
     const name = useInput('', { isEmpty: true, minLength: 3, });
     const phone = useInput('', { isEmpty: true, isPhone: true, minLength: 8, });
     const email = useInput('', { isEmpty: true, IsEmail: true, });
