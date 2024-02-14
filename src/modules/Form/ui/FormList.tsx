@@ -38,7 +38,6 @@ export const FormList: React.FC<FormListProps> = ({ setLoading }) => {
             toggleModal()
         } catch (error) {
             console.warn(error);
-            alert('Ошибка загрузки');
         } finally {
             setLoading(false)
 
