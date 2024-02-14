@@ -17,7 +17,6 @@ interface HeaderProps {
 
 export const Header = ({ className }: HeaderProps) => {
     const [open, setOpen] = React.useState(false);
-    const [isAuthModal, setIsAuthModal] = React.useState(false);
     const { modal, toggleModal } = useModal();
     const { text } = useText()
     const [loading, setLoading] = React.useState(false)
@@ -25,6 +24,12 @@ export const Header = ({ className }: HeaderProps) => {
 
     const toglleNavbar = () => {
         setOpen(prev => !prev)
+        if (!open) {
+            document.body.classList.add('modal-show');
+        }
+        if (open) {
+            document.body.classList.remove('modal-show');
+        }
     }
     return (
         <div className={cls.Header} >

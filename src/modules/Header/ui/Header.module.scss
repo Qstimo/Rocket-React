@@ -281,3 +281,10 @@
         }
     }
 }
+
+body+._active_nav {
+    @media (max-width:770px) {
+        overflow: hidden;
+    }
+
+}

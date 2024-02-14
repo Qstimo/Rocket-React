@@ -40,7 +40,6 @@ export const FormList: React.FC<FormListProps> = ({ setLoading }) => {
             console.warn(error);
         } finally {
             setLoading(false)
-
         }
 
 

@@ -6,6 +6,14 @@ body {
   margin: 0;
 }
 
+.modal-show {
+  @media (max-width:770px) {
+    height: 100vh;
+    overflow: hidden;
+    padding-right: 15px;
+  }
+}
+
 .app {
   min-height: 100vh;
   color: #364844;
