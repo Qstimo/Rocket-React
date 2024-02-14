@@ -10,7 +10,12 @@
     position: relative;
 }
 
+.Button:disabled {
+    border: 1px solid grey;
+    color: grey;
+    background-color: white;
 
+}
 
 .clear-green {
     background-color: transparent;

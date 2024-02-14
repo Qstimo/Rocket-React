@@ -9,6 +9,7 @@ import { Modal } from '../../../components/Modal/Modal'
 import { FormList } from '../../Form'
 import { useModal } from '../../../app/providers/ModalContext'
 import { useText } from '../../../app/providers/TextContext'
+import { Loading } from '../../../components/Loading/LoadingSvg'
 
 interface HeaderProps {
     className?: string
@@ -19,6 +20,7 @@ export const Header = ({ className }: HeaderProps) => {
     const [isAuthModal, setIsAuthModal] = React.useState(false);
     const { modal, toggleModal } = useModal();
     const { text } = useText()
+    const [loading, setLoading] = React.useState(false)
 
 
     const toglleNavbar = () => {
@@ -71,8 +73,9 @@ export const Header = ({ className }: HeaderProps) => {
 
                 </div>
             </div>
+            {loading && <Loading />}
             <Modal isOpen={modal} onClose={toggleModal}>
-                <FormList />
+                <FormList setLoading={setLoading} />
             </Modal>
         </div >
     )

@@ -1,24 +1,54 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import cls from './Form.module.scss'
 import { Input } from '../../../UI/Input'
 import { classNames } from '../../../components/helpers/Classnames/classnames'
 import iconFalse from './assets/icon/false_ic.svg'
 import iconTrue from './assets/icon/true_ic.svg'
-import { useInput } from '../helpers/InputHook'
+import { useInput, useValidForm } from '../helpers/InputHook'
 import { Button } from '../../../UI/Button'
 import { ButtonTheme } from '../../../UI/Button/ui/Button'
 import scrapImg from './assets/icon/scrap_ic.svg'
 import { useModal } from '../../../app/providers/ModalContext'
-
-export const FormList = () => {
+import { API_URL } from '../../../components/helpers/axios/axios'
+import axios from 'axios'
+import { Loading } from '../../../components/Loading/LoadingSvg'
+type FormListProps = {
+    setLoading: Dispatch<SetStateAction<boolean>>;
+}
+export const FormList: React.FC<FormListProps> = ({ setLoading }) => {
     const name = useInput('', { isEmpty: true, minLength: 3, });
     const phone = useInput('', { isEmpty: true, isPhone: true, minLength: 8, });
     const email = useInput('', { isEmpty: true, IsEmail: true, });
-    const job = useInput('', { isEmpty: true, minLength: 3, });
+    const valid = useValidForm([...email.errorsArray, ...phone.errorsArray, ...name.errorsArray]);
+
     const dataFile = (e: any) => {
         e.preventDefault()
     }
-    const { modal, toggleModal } = useModal();
+    const { toggleModal } = useModal();
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setLoading(true);
+        try {
+            const { data } = await axios.post(`${API_URL}/send-email`, {
+                name: name.value,
+                email: email.value,
+                phone: phone.value
+            })
+            name.setValue('');
+            email.setValue('');
+            phone.setValue('');
+            setLoading(false)
+            toggleModal()
+        } catch (error) {
+            console.warn(error);
+            alert('Ошибка загрузки');
+        } finally {
+            setLoading(false)
+
+        }
+
+
+    };
 
     return (
         <div className={cls.FormList}>
@@ -29,7 +59,7 @@ export const FormList = () => {
                         <h3>Запишитесь<br></br> на приём онлайн</h3>
                         <p>Администратор свяжется с вами через WhatsApp в течение дня и уточнит детали</p>
                     </div>
-                    <form method='POST' action='' encType="multipart/form-data" className={cls.Form_list_register}>
+                    <form onSubmit={handleSubmit} method='POST' action='' encType="multipart/form-data" className={cls.Form_list_register}>
 
                         <label className={cls.Form_list_register_label} htmlFor="name">
                             <Input
@@ -74,7 +104,7 @@ export const FormList = () => {
                                 : <img className={classNames(cls.iconTrue, {}, [])} src={iconTrue} alt="правильно" />)}
                         </label>
 
-                        <Button className={cls.Form_btn} theme={ButtonTheme.GREEN}>Записаться</Button>
+                        <Button disabled={!valid} className={cls.Form_btn} theme={ButtonTheme.GREEN}>Записаться</Button>
                     </form>
                 </div>
             </div >
