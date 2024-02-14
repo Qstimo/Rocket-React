@@ -21,9 +21,6 @@ export const FormList: React.FC<FormListProps> = ({ setLoading }) => {
     const email = useInput('', { isEmpty: true, IsEmail: true, });
     const valid = useValidForm([...email.errorsArray, ...phone.errorsArray, ...name.errorsArray]);
 
-    const dataFile = (e: any) => {
-        e.preventDefault()
-    }
     const { toggleModal } = useModal();
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
